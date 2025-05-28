@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32.6% 17.5%;
+    --input: 217 32.6% 17.5%;
+    --ring: 224 76.3% 48%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(222 47% 11%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-neon-purple to-neon-blue rounded-full;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-purple via-neon-blue to-neon-cyan bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-center relative;
+  }
+
+  .section-heading::after {
+    content: "";
+    @apply absolute left-1/2 -bottom-2 w-20 h-1 bg-gradient-to-r from-neon-purple to-neon-blue transform -translate-x-1/2;
+  }
+
+  .tech-pill {
+    @apply flex items-center gap-2 py-2 px-4 rounded-full glass-card transition-all hover:bg-white/10;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-10 border-l border-neon-blue/30 ml-4 last:border-0 last:pb-0;
+  }
+
+  .timeline-dot {
+    @apply absolute -left-[13px] w-6 h-6 rounded-full bg-neon-blue flex items-center justify-center z-10;
+  }
+
+  .timeline-card {
+    @apply glass-card p-5 rounded-lg;
+  }
+}
+
+.custom-cursor-dot {
+  @apply fixed w-4 h-4 rounded-full bg-neon-purple pointer-events-none mix-blend-screen;
+  transition: transform 0.15s ease-out;
+  z-index: 9999;
+}
+
+.custom-cursor-outline {
+  @apply fixed w-8 h-8 rounded-full border-2 border-neon-blue pointer-events-none opacity-60;
+  transition: transform 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out;
+  z-index: 9999;
+}
+
+.cursor-dot-pointer {
+  @apply bg-neon-blue;
+  animation: pulse 1.5s infinite;
+}
+
+.cursor-outline-pointer {
+  @apply border-neon-purple;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(var(--x), var(--y));
+  }
+  50% {
+    transform: scale(1.2) translate(var(--x), var(--y));
+  }
+  100% {
+    transform: scale(1) translate(var(--x), var(--y));
+  }
+}
+
+.hover-lift {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.project-card {
+  @apply glass-card rounded-2xl overflow-hidden relative transition-all duration-300;
+}
+
+.project-card::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 opacity-0 transition-opacity duration-300;
+  z-index: -1;
+}
+
+.project-card:hover::before {
+  @apply opacity-100;
+}
+
+.project-card:hover {
+  @apply border-neon-purple/50;
+}
+
+.input-gradient-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#131620, #131620), 
+                   linear-gradient(to right, #8B5CF6, #3B82F6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.input-gradient-border:focus {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#131620, #131620), 
+                   linear-gradient(to right, #8B5CF6, #3B82F6, #06B6D4);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
