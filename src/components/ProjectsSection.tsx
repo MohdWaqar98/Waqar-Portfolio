@@ -118,6 +118,22 @@ const ProjectsSection = () => {
       ,
     },
     {
+      title: "Spotify Clone",
+      description: "Spotify Clone is a sleek landing page designed for a music streaming platform, showcasing key features and user-friendly design. It offers a clean UI to attract users and guide them into a seamless music experience.",
+      image: "SpotifyClone.png",
+      demoLink: "https://spotify-two-omega-52.vercel.app/",
+      githubLink: "https://github.com/MohdWaqar98/Spotify",
+      technologies: ["HTML", "CSS", "Javascript"],
+    },
+    {
+      title: "Netflix Landing Page",
+      description: "Netflix Landing Page is a sleek landing page designed for a video streaming platform, showcasing key features and user-friendly design. It offers a clean UI to attract users and guide them into a seamless viewing experience.",
+      image: "NetflixClone.png",
+      demoLink: "https://netflix-clone-two-vert-94.vercel.app/",
+      githubLink: "https://github.com/MohdWaqar98/Netflix-Clone",
+      technologies: ["HTML", "CSS"],
+    },
+    {
       title: "Stockify",
       description: "Stockify is a sleek landing page designed for a stock simulator platform, showcasing key features and market insights. It offers a clean UI to attract users and guide them into simulated trading experiences.",
       image: "Stockify.png",
